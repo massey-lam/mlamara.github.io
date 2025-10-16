@@ -1,0 +1,147 @@
+/* --- RESET DE BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- STYLE GLOBAL DU SITE --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(160deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- NAVBAR FLOTTANTE --- */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center; /* <-- centrer les liens */
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    animation: fadeIn 1s ease forwards;
+}
+
+/* --- ANIMATION APPARITION NAVBAR --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* --- LOGO --- */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+/* --- LIENS DE NAVIGATION --- */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #00bcd4;
+}
+
+/* --- IMAGE FIXE EN HAUT AVEC DÉGRADÉ NOIR EN BAS --- */
+.top-image {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('../css/images/desk.png') center center / cover no-repeat;
+}
+
+/* Dégradé noir progressif sur le bas de l’image */
+.top-image::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35%; /* ajuste selon l'effet souhaité */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000000 100%);
+    pointer-events: none;
+}
+
+
+/* --- Section hero --- */
+.hero {
+    background: #000000; /* couleur de fond de la suite du site */
+    padding: 400px 20px;  /* espace pour la navbar et marges */
+    text-align: center;
+}
+
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Titre principal : plus grand, responsive et centré sur la partie visible de l'image */
+.main-title {
+    position: absolute;
+    top: 45%;           
+    left: 50%;          
+    transform: translate(-50%, -50%);
+    z-index: 100;       /* au-dessus de la coupe */
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
+    font-size: clamp(2.5rem, 10vw, 8rem); /* responsive et adaptée à une seule ligne */
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(0,0,0,0.7);
+    white-space: nowrap; /* empêche le retour à la ligne */
+}
+
+/* Second titre au-dessus du main-title */
+.second-title {
+    position: absolute;
+    top: 36%;             /* légèrement au-dessus du main-title */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Clash Display';
+    font-weight: 10;
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    color: #fff;       /* couleur différente pour contraste */
+    text-align: center;
+    letter-spacing: 1px;
+    z-index: 100;
+}
